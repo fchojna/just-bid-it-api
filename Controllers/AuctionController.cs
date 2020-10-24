@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using just_bid_it.Dtos.Auction;
 using just_bid_it.Models;
 using just_bid_it.Services.AuctionService;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace just_bid_it.Controllers
     public class AuctionController : Controller
     {
         private readonly IAuctionService _auctionService;
+        
 
         public AuctionController(IAuctionService auctionService)
         {
@@ -29,7 +31,7 @@ namespace just_bid_it.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAuction(Auction newAuction)
+        public async Task<IActionResult> AddAuction(AddAuctionDto newAuction)
         {
             return Ok(await _auctionService.AddAuction(newAuction));
         }

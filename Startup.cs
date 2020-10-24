@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using just_bid_it.Data;
 using just_bid_it.Services.AccountService;
 using just_bid_it.Services.AuctionService;
@@ -30,6 +31,7 @@ namespace just_bid_it
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAuctionService, AuctionService>();

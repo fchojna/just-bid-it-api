@@ -79,3 +79,5 @@ C:\Users\nz6195\source\repos\just-bid-it\obj\Debug\netcoreapp3.1\just-bid-it.dll
 C:\Users\nz6195\source\repos\just-bid-it\obj\Debug\netcoreapp3.1\just-bid-it.pdb
 C:\Users\nz6195\source\repos\just-bid-it\obj\Debug\netcoreapp3.1\just-bid-it.genruntimeconfig.cache
 C:\Users\nz6195\source\repos\just-bid-it\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\nz6195\source\repos\just-bid-it\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\nz6195\source\repos\just-bid-it\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

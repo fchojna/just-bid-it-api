@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using just_bid_it.Dtos.Account;
 using just_bid_it.Models;
 using just_bid_it.Services.AccountService;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace just_bid_it.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAccount(Account newAccount)
+        public async Task<IActionResult> AddAccount(AddAccountDto newAccount)
         {
             return Ok(await _accountService.AddAccount(newAccount));
         }
