@@ -1,58 +1,43 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using just_bid_it.Data;
 using just_bid_it.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace just_bid_it.Services.AuctionService
 {
     public class AuctionService : IAuctionService
     {
-        List<Auction> auctions = new List<Auction>() 
-        {
-            new Auction()
-            { 
-                Id = 0,
-                SellerId = 3,
-                BuyerId = 4,
-                Title = "Sprzedam Astre!",
-                Location = "Katowice",
-                StartPrice = 5000,
-                FinalPrice = 0,
-                AuctionStart = new DateTime(2020, 10, 20, 21, 0, 0),
-                AuctionFinish = new DateTime(2020, 10, 20, 28, 0, 0),
-                Type = BodyType.Estate,
-                Brand = "Opel",
-                Model = "Astra",
-                ProductionYear = 2005,
-                ProductionCountry = Country.Poland,
-                VinNumber = "WP1AF2A23ELA47588",
-                EngineCapacity = 1.6f,
-                EnginePower = 180,
-                Fuel = FuelType.Gasoline,
-                Drive = DriveType.FrontWheelsDrive,
-                Transmission = TransmissionType.Manual,
-                HasParticleFilter = true,
-                Color = Color.Black,
-                DoorCount = 5,
-                SeatCount = 5,
-                IsBroken = false,
-                IsAccidentFree = true
-            }
-        };
+        private readonly DataContext _context;
 
-        public Task<ServiceResponse<List<Auction>>> AddAuction(Auction newAuction)
+        public AuctionService(DataContext context)
         {
-            throw new System.NotImplementedException();
+            _context = context;
         }
 
-        public Task<ServiceResponse<List<Auction>>> GetAllAuctions()
+        public async Task<ServiceResponse<List<Auction>>> AddAuction(Auction newAuction)
         {
-            throw new System.NotImplementedException();
+            var serviceResponse = new ServiceResponse<List<Auction>>();
+            await _context.Auctions.AddAsync(newAuction);
+            await _context.SaveChangesAsync();
+            serviceResponse.Data = await _context.Auctions.ToListAsync();
+            return serviceResponse;
         }
 
-        public Task<ServiceResponse<Auction>> GetAuctionById(int id)
+        public async Task<ServiceResponse<List<Auction>>> GetAllAuctions()
         {
-            throw new System.NotImplementedException();
+            var serviceResponse = new ServiceResponse<List<Auction>>();
+            serviceResponse.Data = await _context.Auctions.ToListAsync();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<Auction>> GetAuctionById(int id)
+        {
+            var serviceResponse = new ServiceResponse<Auction>();
+            serviceResponse.Data = await _context.Auctions.FirstOrDefaultAsync(a => a.Id == id);
+            return serviceResponse;
         }
     }
 }
