@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\nz6195\\source\\repos\\just-bid-it\\just-bid-it.csproj",
+  "FilePath": "c:\\Users\\Danteruu\\source\\repos\\just-bid-it\\just-bid-it-api\\just-bid-it.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14387,7 +14387,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 900
   },
   "RootNamespace": "just_bid_it",
   "Documents": [],
