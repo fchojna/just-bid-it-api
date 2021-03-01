@@ -10,5 +10,6 @@ namespace just_bid_it.Services.AccountService
          Task<ServiceResponse<List<GetAccountDto>>> GetAllAccounts();
          Task<ServiceResponse<Account>> GetAccountById(int id);
          Task<ServiceResponse<List<GetAccountDto>>> AddAccount(AddAccountDto newAccount);
+        ServiceResponse<string> ValidateLogin(string username, string password);
     }
 }

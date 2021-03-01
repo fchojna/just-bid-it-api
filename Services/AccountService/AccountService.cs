@@ -45,5 +45,16 @@ namespace just_bid_it.Services.AccountService
             serviceResponse.Data = await _context.Accounts.Select(a => _mapper.Map<GetAccountDto>(a)).ToListAsync();
             return serviceResponse;
         }
+
+        public ServiceResponse<string> ValidateLogin(string username, string password)
+        {
+            var serviceResponse = new ServiceResponse<string>();
+            serviceResponse.Success = _context.Accounts.Any(a => a.Nickname==username && a.Password==password);
+            if (!serviceResponse.Success) {
+                serviceResponse.Message = _context.Accounts.Any(a => a.Nickname==username) ? "Invalid password!" : "User not found!";
+            }
+            serviceResponse.Data = username;
+            return serviceResponse;
+        }
     }
 }

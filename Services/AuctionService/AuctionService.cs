@@ -21,22 +21,22 @@ namespace just_bid_it.Services.AuctionService
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<List<GetAuctionListDto>>> AddAuction(AddAuctionDto newAuction)
+        public async Task<ServiceResponse<List<Auction>>> AddAuction(AddAuctionDto newAuction)
         {
-            var serviceResponse = new ServiceResponse<List<GetAuctionListDto>>();
+            var serviceResponse = new ServiceResponse<List<Auction>>();
             var auction = _mapper.Map<Auction>(newAuction);
             auction.FinalPrice = auction.StartPrice;
             auction.AuctionStart = DateTime.Now;
             await _context.Auctions.AddAsync(auction);
             await _context.SaveChangesAsync();
-            serviceResponse.Data = await _context.Auctions.Select(a => _mapper.Map<GetAuctionListDto>(a)).ToListAsync();
+            serviceResponse.Data = await _context.Auctions.ToListAsync();
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetAuctionListDto>>> GetAllAuctions()
+        public async Task<ServiceResponse<List<Auction>>> GetAllAuctions()
         {
-            var serviceResponse = new ServiceResponse<List<GetAuctionListDto>>();
-            serviceResponse.Data = await _context.Auctions.Select(a => _mapper.Map<GetAuctionListDto>(a)).ToListAsync();
+            var serviceResponse = new ServiceResponse<List<Auction>>();
+            serviceResponse.Data = await _context.Auctions.ToListAsync();
             return serviceResponse;
         }
 

@@ -13,21 +13,25 @@ namespace just_bid_it.Models
         public double FinalPrice { get; set; }
         public DateTime AuctionStart { get; set; }
         public DateTime AuctionFinish { get; set; }
-        public BodyType Type { get; set; }
+        public string Type { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
         public int ProductionYear { get; set; }
-        public Country ProductionCountry { get; set; }
+        public string ProductionCountry { get; set; }
         public string VinNumber { get; set; }
-        public float EngineCapacity { get; set; }
-        public float EnginePower { get; set; }
-        public FuelType Fuel { get; set; }
-        public DriveType Drive { get; set; }
-        public TransmissionType Transmission { get; set; }
-        public bool HasParticleFilter { get; set; }
-        public Color Color { get; set; }
+        public int EngineCapacity { get; set; }
+        public int EnginePower { get; set; }
+        public string Fuel { get; set; }
+        public string Drive { get; set; }
+        public string Transmission { get; set; }
+        public int HasParticleFilter { get; set; }
+        public string Color { get; set; }
         public int DoorCount { get; set; }
         public int SeatCount { get; set; }
-        public bool IsBroken { get; set; }
+        public int IsBroken { get; set; }
+        public string Generation { get; set; }
+        public int Mileage { get; set; }
+        public int IsAccidentFree { get; set; }
+        public string AdditionalEquipment { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using just_bid_it.Data;
 
 namespace just_bid_it.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210227113417_Migration2")]
+    partial class Migration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,6 +43,9 @@ namespace just_bid_it.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Accounts");
@@ -52,9 +57,6 @@ namespace just_bid_it.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AdditionalEquipment")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("AuctionFinish")
                         .HasColumnType("datetime2");
@@ -77,11 +79,11 @@ namespace just_bid_it.Migrations
                     b.Property<string>("Drive")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EngineCapacity")
-                        .HasColumnType("int");
+                    b.Property<float>("EngineCapacity")
+                        .HasColumnType("real");
 
-                    b.Property<int>("EnginePower")
-                        .HasColumnType("int");
+                    b.Property<float>("EnginePower")
+                        .HasColumnType("real");
 
                     b.Property<double>("FinalPrice")
                         .HasColumnType("float");
@@ -89,23 +91,14 @@ namespace just_bid_it.Migrations
                     b.Property<string>("Fuel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Generation")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("HasParticleFilter")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("HasParticleFilter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IsAccidentFree")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IsBroken")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsBroken")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Mileage")
-                        .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");

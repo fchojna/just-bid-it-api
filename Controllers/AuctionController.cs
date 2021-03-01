@@ -10,24 +10,25 @@ namespace just_bid_it.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuctionController : Controller
     {
         private readonly IAuctionService _auctionService;
         private readonly IAuthenticationManager _auth;
 
-        public AuctionController(IAuctionService auctionService, IAuthenticationManager auth)
+        public AuctionController(IAuctionService auctionService)
         {
             _auctionService = auctionService;
-            _auth = auth;
         }
 
+        [AllowAnonymous]
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _auctionService.GetAllAuctions());
         }
-
+        
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(int id)
         {
@@ -38,16 +39,6 @@ namespace just_bid_it.Controllers
         public async Task<IActionResult> AddAuction(AddAuctionDto newAuction)
         {
             return Ok(await _auctionService.AddAuction(newAuction));
-        }
-
-        [AllowAnonymous]
-        [HttpPost]
-        public IActionResult Authenticate([FromBody] UserCredentials userCred)
-        {
-            var token = _auth.Authenticate(userCred.Username, userCred.Password);
-            if (token == null)
-                return Unauthorized();
-            return Ok();
         }
     }
 }

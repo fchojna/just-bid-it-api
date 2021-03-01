@@ -10,6 +10,5 @@ namespace just_bid_it.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime CreateDate { get; set; }
-        public AccountType Type { get; set; } = 0;
     }
 }
