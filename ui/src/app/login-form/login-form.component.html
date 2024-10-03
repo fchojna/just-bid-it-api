@@ -1,0 +1,85 @@
+<div *ngIf="type=='mini'">
+  <div class="tile login-tile mat-elevation-z4">
+    <h1>Or...</h1>
+    <mat-tab-group mat-stretch-tabs dynamicHeight [@.disabled]="true">
+      <mat-tab label="Sign In">
+        <br>
+        <form [formGroup]="loginForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" />
+          </mat-form-field>
+          <button mat-raised-button (click)="login()" color="primary">Sign In</button>
+        </form>
+      </mat-tab>
+      <mat-tab label="Sign Up">
+        <br>
+        <form [formGroup]="registerForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="passwordConfirm" />
+          </mat-form-field>
+          <mat-checkbox class="mb-16" formControlName="policy" [disableRipple]="true">I agree to Just Bid It's <a
+              href="https://pbs.twimg.com/media/DtfLYF3XcAERkRB.jpg" target="_blank">Terms of Service</a> and
+            <a href="https://pbs.twimg.com/media/EbVuchmU4AIQ0Gw.png" target="_blank">Privacy Policy</a>.
+          </mat-checkbox>
+          <button mat-raised-button (click)="register()" color="primary">Sign Up</button>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+<!-- <div *ngIf="type=='full'" class="type-full">
+  <div class="tile login-tile mat-elevation-z3">
+    <form [formGroup]="loginForm">
+      <h1>Sign In</h1>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="username"/>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+      <button mat-raised-button (click)="login()" color="primary">Sign In</button>
+    </form>
+    {{loginForm.value | json}}
+  </div>
+  <div class="tile register-tile mat-elevation-z3">
+    <form [formGroup]="registerForm">
+      <h1>Sign Up</h1>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="passwordConfirm" />
+      </mat-form-field>
+      <mat-checkbox class="mb-16" formControlName="policy" [disableRipple]="true">I agree to Just Bid It's <a
+          href="https://pbs.twimg.com/media/DtfLYF3XcAERkRB.jpg" target="_blank">Terms of Service</a> and
+        <a href="https://pbs.twimg.com/media/EbVuchmU4AIQ0Gw.png" target="_blank">Privacy Policy</a>.
+      </mat-checkbox>
+      <button mat-raised-button (click)="register()" color="primary">Sign Up</button>
+    </form>
+    {{registerForm.value | json}}
+  </div>
+</div> -->

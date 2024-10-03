@@ -1,0 +1,285 @@
+<div class="container">
+  
+  <div class="section section-top">
+    <div class="content content-top">
+      <div class="tile mat-elevation-z4">
+
+        <form class="search-form" [formGroup]="searchForm">
+          <h1>Search</h1>
+          <div class="row wrap">
+
+            <!-- Vehicle -->
+            <div class="col-labeled item3">
+              <span class="col-label">Vehicle</span>
+              <div class="col">
+                <!-- Make -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Make</mat-label>
+                  <input matInput formControlName="make" [matAutocomplete]="autoMake" />
+                  <mat-autocomplete #autoMake="matAutocomplete">
+                    <mat-option *ngFor="let make of makes" [value]="make">
+                      {{make}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Model -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Model</mat-label>
+                  <input matInput formControlName="model" [matAutocomplete]="autoModel"/>
+                  <mat-autocomplete #autoModel="matAutocomplete">
+                    <mat-option *ngFor="let model of models" [value]="model">
+                      {{model}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Generation -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Generation</mat-label>
+                  <input matInput formControlName="generation" [matAutocomplete]="autoGeneration" />
+                  <mat-autocomplete #autoGeneration="matAutocomplete">
+                    <mat-option *ngFor="let generation of generations" [value]="generation">
+                      {{generation}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Production Year -->
+            <div class="col-labeled range">
+              <span class="col-label">Production Year</span>
+              <div class="col">
+                <!-- From -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Min.</mat-label>
+                  <input matInput formControlName="productionYearFrom" [matAutocomplete]="autoYear" />
+                  <mat-autocomplete #autoYear="matAutocomplete">
+                    <mat-option *ngFor="let year of years" [value]="year">
+                      {{year}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- To -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Max.</mat-label>
+                  <input matInput formControlName="productionYearTo" [matAutocomplete]="autoYear" />
+                  <mat-autocomplete #autoYear="matAutocomplete">
+                    <mat-option *ngFor="let year of years" [value]="year">
+                      {{year}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Mileage -->
+            <div class="col-labeled range">
+              <span class="col-label">Mileage</span>
+              <div class="col">
+                <!-- Min -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Min.</mat-label>
+                  <input matInput formControlName="mileageMin" [matAutocomplete]="autoMileage" />
+                  <mat-autocomplete #autoMileage="matAutocomplete">
+                    <mat-option *ngFor="let distance of distances" [value]="distance">
+                      {{distance}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Max -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Max.</mat-label>
+                  <input matInput formControlName="mileageMax" [matAutocomplete]="autoMileage" />
+                  <mat-autocomplete #autoMileage="matAutocomplete">
+                    <mat-option *ngFor="let distance of distances" [value]="distance">
+                      {{distance}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Price -->
+            <div class="col-labeled range">
+              <span class="col-label">Current price</span>
+              <div class="col">
+                <!-- Min -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Min.</mat-label>
+                  <input matInput formControlName="priceMin" [matAutocomplete]="autoPrice" />
+                  <mat-autocomplete #autoPrice="matAutocomplete">
+                    <mat-option *ngFor="let price of prices" [value]="price">
+                      {{price}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Max -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Max.</mat-label>
+                  <input matInput formControlName="priceMax" [matAutocomplete]="autoPrice" />
+                  <mat-autocomplete #autoPrice="matAutocomplete">
+                    <mat-option *ngFor="let price of prices" [value]="price">
+                      {{price}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Engine -->
+            <div class="col-labeled item1">
+              <span class="col-label">Fuel</span>
+              <div class="col">
+                <!-- Fuel Type -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Type</mat-label>
+                  <input matInput formControlName="fuelType" [matAutocomplete]="autoFuelType" />
+                  <mat-autocomplete #autoFuelType="matAutocomplete">
+                    <mat-option *ngFor="let fuelType of fuelTypes" [value]="fuelType">
+                      {{fuelType}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Capacity -->
+            <div class="col-labeled range">
+              <span class="col-label">Capacity</span>
+              <div class="col">
+                <!-- Capacity Min -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Min.</mat-label>
+                  <input matInput formControlName="capacityMin" [matAutocomplete]="autoCapacity" />
+                  <mat-autocomplete #autoCapacity="matAutocomplete">
+                    <mat-option *ngFor="let capacity of capacities" [value]="capacity">
+                      {{capacity}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Capacity Max -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Max.</mat-label>
+                  <input matInput formControlName="capacityMax" [matAutocomplete]="autoCapacity" />
+                  <mat-autocomplete #autoCapacity="matAutocomplete">
+                    <mat-option *ngFor="let capacity of capacities" [value]="capacity">
+                      {{capacity}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Power -->
+            <div class="col-labeled range">
+              <span class="col-label">Power</span>
+              <div class="col">
+                <!-- Power Min -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Min.</mat-label>
+                  <input matInput formControlName="powerMin" [matAutocomplete]="autoPower" />
+                  <mat-autocomplete #autoPower="matAutocomplete">
+                    <mat-option *ngFor="let power of powers" [value]="power">
+                      {{power}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Power Max -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Max.</mat-label>
+                  <input matInput formControlName="powerMax" [matAutocomplete]="autoPower" />
+                  <mat-autocomplete #autoPower="matAutocomplete">
+                    <mat-option *ngFor="let power of powers" [value]="power">
+                      {{power}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Transmission -->
+            <div class="col-labeled range">
+              <span class="col-label">Transmission</span>
+              <div class="col">
+                <!-- Gearbox Type -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Gearbox</mat-label>
+                  <input matInput formControlName="gearbox" [matAutocomplete]="autoGearbox" />
+                  <mat-autocomplete #autoGearbox="matAutocomplete">
+                    <mat-option *ngFor="let gearbox of gearboxTypes" [value]="gearbox">
+                      {{gearbox}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Drive Type -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Drive</mat-label>
+                  <input matInput formControlName="driveType" [matAutocomplete]="autoDriveType" />
+                  <mat-autocomplete #autoDriveType="matAutocomplete">
+                    <mat-option *ngFor="let driveType of driveTypes" [value]="driveType">
+                      {{driveType}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Country -->
+            <div class="col-labeled item1">
+              <span class="col-label">Origin</span>
+              <div class="col">
+                <!-- Fuel Type -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Country</mat-label>
+                  <input matInput formControlName="country" [matAutocomplete]="autoCountry" />
+                  <mat-autocomplete #autoCountry="matAutocomplete">
+                    <mat-option *ngFor="let country of countries" [value]="country">
+                      {{country}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Country -->
+            <div class="col-labeled item1">
+              <span class="col-label">Equipment</span>
+              <div class="col">
+                <!-- Fuel Type -->
+                <mat-form-field appearance="outline">
+                  <mat-select>
+
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+          </div>
+          <div class="search-button-container">
+            <span>{{foundCount}} matching {{foundCount == 1 ? 'vehicle!' : 'vehicles!'}}</span>
+            <button mat-raised-button (click)="search()" color="primary"> 
+              <mat-icon>search</mat-icon>
+              <span>Search</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+      <app-login-form type="mini"></app-login-form>
+    </div>
+  </div>
+
+  <div class="section section-bottom">
+    <div class="content content-bottom">
+      <h1>{{allAuctions.length==0 ? 'Offer of the day' : 'Search results'}}:</h1>
+      <div *ngIf="allAuctions.length==0" class="fx tile mat-elevation-z1" style="padding: 10px">
+        <app-auction-tile type="ood" [auction]="auctionOfTheDay"></app-auction-tile>
+      </div>
+      <div class="content-bottom" *ngIf="allAuctions.length!=0">
+        <div *ngFor="let auction of allAuctions" class="fx tile mat-elevation-z1" style="padding: 10px">
+          <app-auction-tile [auction]="auction"></app-auction-tile>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  width: 70%;
+}
+
+app-login-form {
+    flex: 1;
+}

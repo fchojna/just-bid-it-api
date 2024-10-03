@@ -1,0 +1,95 @@
+// Flex layout
+
+.fx {
+  flex: 1 1 auto;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  column-gap: 20px;
+  row-gap: 0px;
+  padding: auto 0;
+}
+
+.row-right {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+  gap: 24px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.col-labeled {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.col {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 4px;
+}
+
+.col>* {
+  flex: 1 1 auto;
+}
+
+.col-labeled.range {
+  max-width: 243px;;
+  flex: 1.5 9 162px;
+}
+
+.col-labeled.item1 {
+  max-width: 210px;
+  flex: 1 12 130px;
+}
+
+.col-labeled.item2 {
+  max-width: 383px;
+  flex: 2 6 256px;
+}
+
+.col-labeled.item3 {
+  max-width: 578px;
+  flex: 3 4 385px;
+}
+
+.col-labeled.item4 {
+  max-width: 799px;
+  flex: 4 3 533px;
+}
+
+
+
+// Paddings & Margins
+
+.p-16 {
+  padding: 16px;
+}
+
+.pt-16 {
+  padding-top: 16px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+
+
+// Other
+
+.hidden {
+  opacity: 0%;
+}

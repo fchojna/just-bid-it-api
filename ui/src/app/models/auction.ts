@@ -1,0 +1,30 @@
+export class Auction {
+  id?: number;
+  sellerId?: number;
+  buyerId?: number;
+  title?: string;
+  location?: string;
+  startPrice?: number;
+  finalPrice?: number;
+  auctionStart?: string;
+  auctionFinish?: string;
+  type?: string;
+  brand?: string;
+  model?: string;
+  productionYear?: number;
+  productionCountry?: string;
+  vinNumber?: string;
+  engineCapacity?: number;
+  enginePower?: number;
+  fuel?: string;
+  drive?: string;
+  transmission?: string;
+  hasParticleFilter?: boolean;
+  color?: string;
+  doorCount?: number;
+  seatCount?: number;
+  isBroken?: boolean;
+  generation?: string;
+  mileage?: number;
+  additionalEquipment?: string;
+}
